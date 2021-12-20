@@ -7,15 +7,18 @@ import { useHistory } from "react-router-dom";
 import authenticationApi from "apis/authentication";
 import { resetAuthTokens } from "apis/axios";
 import { useAuthDispatch } from "contexts/auth";
-import { useUserState } from "contexts/user";
 
-import { APP_NAME, SIDENAV_LINKS } from "./constants";
+import {
+  APP_NAME,
+  SIDENAV_LINKS,
+  IMAGE_URL,
+  USER_EMAIL,
+  USER_NAME,
+} from "./constants";
 
 const Sidenav = () => {
   const history = useHistory();
   const authDispatch = useAuthDispatch();
-
-  const { user } = useUserState();
 
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
 
@@ -36,10 +39,6 @@ const Sidenav = () => {
       onClick: () => history.push("/my/profile"),
     },
     {
-      label: "Change Password",
-      onClick: () => history.push("/my/password/edit"),
-    },
-    {
       label: "Logout",
       onClick: handleLogout,
     },
@@ -50,14 +49,10 @@ const Sidenav = () => {
       isCollapsed={isSidebarCollapsed}
       navLinks={SIDENAV_LINKS}
       appName={APP_NAME}
-      organizationInfo={{
-        name: "Wheel",
-        subdomain: "bigbinary.com",
-      }}
       profileInfo={{
-        name: `${user.first_name} ${user.last_name}`,
-        imageUrl: user.profile_image_path,
-        email: user.email,
+        name: USER_NAME,
+        imageUrl: IMAGE_URL,
+        email: USER_EMAIL,
         dropdownProps,
       }}
       onCollapse={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
