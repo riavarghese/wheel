@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { Button } from "neetoui/v2";
 import { Header } from "neetoui/v2/layouts";
 
+import { NoteContext } from "contexts/note";
+
 import { SEARCH_PLACEHOLDER } from "./constants";
-import DeleteAlert from "./DeleteAlert";
+import DeleteModal from "./DeleteModal";
 import NoteList from "./List";
 import NewNotePane from "./Pane/CreateNote";
 
 import Menubar from "../../Common/Menubar";
 
 const Notes = () => {
-  const [showNewNotePane, setShowNewNotePane] = useState(false);
-  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
-  const [selectedNoteIds, setSelectedNoteIds] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
+  const { setShowNewNotePane, showDeleteModal } = useContext(NoteContext);
 
   return (
     <div className="w-full flex">
@@ -40,17 +40,8 @@ const Notes = () => {
           }
         />
         <NoteList />
-        <NewNotePane
-          showPane={showNewNotePane}
-          setShowPane={setShowNewNotePane}
-        />
-        {showDeleteAlert && (
-          <DeleteAlert
-            selectedNoteIds={selectedNoteIds}
-            onClose={() => setShowDeleteAlert(false)}
-            setSelectedNoteIds={setSelectedNoteIds}
-          />
-        )}
+        <NewNotePane />
+        {showDeleteModal && <DeleteModal />}
       </div>
     </div>
   );
