@@ -5,8 +5,8 @@ import { Header } from "neetoui/v2/layouts";
 
 import { SEARCH_PLACEHOLDER } from "./constants";
 import DeleteAlert from "./DeleteAlert";
+import NoteList from "./List";
 import NewNotePane from "./Pane/CreateNote";
-import NoteTable from "./Table";
 
 import Menubar from "../../Common/Menubar";
 
@@ -39,7 +39,7 @@ const Notes = () => {
             />
           }
         />
-        <NoteTable />
+        <NoteList />
         <NewNotePane
           showPane={showNewNotePane}
           setShowPane={setShowNewNotePane}

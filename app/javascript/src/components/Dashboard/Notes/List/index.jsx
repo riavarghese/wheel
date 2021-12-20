@@ -5,7 +5,7 @@ import Note from "./Note";
 import { SAMPLE_NOTES } from "../constants";
 import EditNotePane from "../Pane/EditNote";
 
-export default function NoteTable() {
+export default function NoteList() {
   const [showEditNote, setShowEditNote] = useState(false);
   return (
     <>
