@@ -16,7 +16,7 @@ const DeleteModal = ({ isContactsPage }) => {
       : SAMPLE_NOTES.splice(selectedNote, 1);
     setShowDeleteModal(false);
     Toastr.success(
-      `Successfully deleted ${isContactsPage ? "contact" : "note"}.`
+      `${isContactsPage ? "Contact" : "Note"} deleted successfully.`
     );
   };
 

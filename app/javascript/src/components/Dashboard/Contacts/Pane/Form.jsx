@@ -31,7 +31,7 @@ const ContactForm = ({ contact, isEdit }) => {
     });
 
     setShowNewContactPane(false);
-    Toastr.success("Successfully created contact.");
+    Toastr.success("Contact created successfully.");
   };
 
   return (

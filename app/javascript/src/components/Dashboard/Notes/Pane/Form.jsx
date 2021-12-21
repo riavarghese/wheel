@@ -40,7 +40,7 @@ export default function NoteForm({ note, isEdit }) {
     });
 
     setShowNewNotePane(false);
-    Toastr.success("Successfully created note.");
+    Toastr.success("Note created successfully.");
   };
 
   return (
