@@ -1,4 +1,4 @@
-import { Text, UserCircle, Settings } from "@bigbinary/neeto-icons";
+import { Text, UserCircle, Settings } from "neetoicons";
 
 export const APP_NAME = "Notes";
 

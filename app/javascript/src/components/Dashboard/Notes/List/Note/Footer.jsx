@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Clock } from "@bigbinary/neeto-icons";
-import { Typography, Tag, Avatar, Tooltip } from "@bigbinary/neetoui/v2";
+import { Clock } from "neetoicons";
+import { Typography, Tag, Avatar, Tooltip } from "neetoui/v2";
 
 const NoteFooter = ({ note }) => {
   return (

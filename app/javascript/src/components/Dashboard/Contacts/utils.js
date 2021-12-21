@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Avatar, Typography } from "@bigbinary/neetoui/v2";
+import { Avatar, Typography } from "neetoui/v2";
 
 export const nameAndRole = ({ name, role }) => {
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 
-import { MenuHorizontal } from "@bigbinary/neeto-icons";
-import { Dropdown, Table } from "@bigbinary/neetoui/v2";
+import { MenuHorizontal } from "neetoicons";
+import { Dropdown, Table } from "neetoui/v2";
 
 import { DashboardContext } from "contexts/dashboard";
 
@@ -32,13 +32,15 @@ const ContactsTable = () => {
   }));
 
   return (
-    <Table
-      columnData={COLUMNS}
-      currentPageNumber={currentPageNumber}
-      defaultPageSize={10}
-      handlePageChange={page => setCurrentPageNumber(page)}
-      rowData={rowData}
-    />
+    <div style={{ width: "99%" }}>
+      <Table
+        columnData={COLUMNS}
+        currentPageNumber={currentPageNumber}
+        defaultPageSize={10}
+        handlePageChange={page => setCurrentPageNumber(page)}
+        rowData={rowData}
+      />
+    </div>
   );
 };
 

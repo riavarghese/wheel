@@ -4,11 +4,14 @@ import { Formik, Form } from "formik";
 import { Toastr, Button, Pane } from "neetoui/v2";
 import { Input, Select } from "neetoui/v2/formik";
 
+import {
+  MONTHS,
+  CONTACTS,
+  FORM_ROLE_DROPDOWN,
+} from "components/Dashboard/Contacts/constants";
+import { nameAndRole } from "components/Dashboard/Contacts/utils";
 import formValidationSchemas from "constants/formValidationSchemas";
 import { DashboardContext } from "contexts/dashboard";
-
-import { MONTHS, CONTACTS, FORM_ROLE_DROPDOWN } from "../constants";
-import { nameAndRole } from "../utils";
 
 const ContactForm = ({ contact }) => {
   const [submitted, setSubmitted] = useState(false);

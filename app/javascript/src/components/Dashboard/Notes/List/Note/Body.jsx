@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Typography } from "@bigbinary/neetoui/v2";
+import { Typography } from "neetoui/v2";
 
 const NoteBody = ({ note }) => {
   return (

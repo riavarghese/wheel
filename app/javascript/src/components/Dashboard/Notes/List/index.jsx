@@ -1,10 +1,9 @@
 import React from "react";
 
 import EmptyState from "components/Common/EmptyState";
+import { SAMPLE_NOTES } from "components/Dashboard/Notes/constants";
 
 import Note from "./Note";
-
-import { SAMPLE_NOTES } from "../constants";
 
 export default function NoteList() {
   const isNotesNotEmpty = !!SAMPLE_NOTES.length;

@@ -2,17 +2,16 @@ import React, { useState, useContext } from "react";
 
 import { Formik, Form } from "formik";
 import moment from "moment";
-import { Toastr, Button, Pane } from "neetoui/v2";
-import { Input, Textarea, Select } from "neetoui/v2/formik";
-
-import formValidationSchemas from "constants/formValidationSchemas";
-import { DashboardContext } from "contexts/dashboard";
+import { Toastr, Button, Pane } from "neetoui";
+import { Input, Textarea, Select } from "neetoui/formik";
 
 import {
   FORM_TAGS_DROPDOWN,
   FORM_CONTACTS_DROPDOWN,
   SAMPLE_NOTES,
-} from "../constants";
+} from "components/Dashboard/Notes/constants";
+import formValidationSchemas from "constants/formValidationSchemas";
+import { DashboardContext } from "contexts/dashboard";
 
 export default function NoteForm({ note }) {
   const [submitted, setSubmitted] = useState(false);
@@ -66,6 +65,7 @@ export default function NoteForm({ note }) {
               name="description"
               className="flex-grow-0 w-full"
               placeholder="Enter note description"
+              rows={1}
               required
             />
             <Select
