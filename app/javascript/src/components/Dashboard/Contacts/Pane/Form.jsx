@@ -9,7 +9,7 @@ import {
   CONTACTS,
   FORM_ROLE_DROPDOWN,
 } from "components/Dashboard/Contacts/constants";
-import { nameAndRole } from "components/Dashboard/Contacts/utils";
+import { formatNameAndRole } from "components/Dashboard/Contacts/utils";
 import formValidationSchemas from "constants/formValidationSchemas";
 import { DashboardContext } from "contexts/dashboard";
 
@@ -24,15 +24,16 @@ const ContactForm = ({ contact }) => {
       MONTHS[date.getMonth()]
     }, ${date.getDate()}, ${date.getFullYear()}`;
 
-    CONTACTS.unshift({
+    const newContact = {
       ...values,
-      name_role: nameAndRole({
+      name_role: formatNameAndRole({
         name: `${values.firstName} ${values.lastName}`,
         role: values.role.label,
       }),
       created_at: createdAt,
-    });
+    };
 
+    CONTACTS.unshift(newContact);
     setShowNewContactPane(false);
     Toastr.success("Contact created successfully.");
   };

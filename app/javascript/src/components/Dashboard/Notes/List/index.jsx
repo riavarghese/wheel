@@ -7,6 +7,7 @@ import Note from "./Note";
 
 export default function NoteList() {
   const isNotesNotEmpty = !!SAMPLE_NOTES.length;
+
   return (
     <div className="w-full notes-table-height">
       {isNotesNotEmpty ? (
