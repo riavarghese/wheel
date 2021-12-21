@@ -4,15 +4,20 @@ import NoteBody from "./Body";
 import NoteFooter from "./Footer";
 import NoteHeader from "./Header";
 
+/* eslint-disable import/exports-last */
+export const NoteContext = React.createContext();
+
 const Note = ({ note, index }) => {
   return (
-    <div className="border border-gray-300 p-4 shadow-sm mb-4 rounded-sm">
-      <div className="border-b pb-2">
-        <NoteHeader note={note} index={index} />
-        <NoteBody note={note} />
+    <NoteContext.Provider value={{ note, index }}>
+      <div className="border border-gray-300 p-4 shadow-sm mb-4 rounded-sm">
+        <div className="border-b pb-2">
+          <NoteHeader />
+          <NoteBody />
+        </div>
+        <NoteFooter />
       </div>
-      <NoteFooter note={note} />
-    </div>
+    </NoteContext.Provider>
   );
 };
 

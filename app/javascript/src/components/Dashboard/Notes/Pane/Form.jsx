@@ -2,8 +2,8 @@ import React, { useState, useContext } from "react";
 
 import { Formik, Form } from "formik";
 import moment from "moment";
-import { Toastr, Button, Pane } from "neetoui";
-import { Input, Textarea, Select } from "neetoui/formik";
+import { Toastr, Button, Pane } from "neetoui/v2";
+import { Input, Textarea, Select } from "neetoui/v2/formik";
 
 import {
   FORM_TAGS_DROPDOWN,
@@ -13,7 +13,7 @@ import {
 import formValidationSchemas from "constants/formValidationSchemas";
 import { DashboardContext } from "contexts/dashboard";
 
-export default function NoteForm({ note }) {
+const NoteForm = ({ note }) => {
   const [submitted, setSubmitted] = useState(false);
   const { setShowNewNotePane } = useContext(DashboardContext);
 
@@ -111,4 +111,6 @@ export default function NoteForm({ note }) {
       )}
     </Formik>
   );
-}
+};
+
+export default NoteForm;

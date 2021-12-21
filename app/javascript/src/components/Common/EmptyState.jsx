@@ -4,7 +4,7 @@ import { Button } from "neetoui/v2";
 
 import { DashboardContext } from "contexts/dashboard";
 
-export default function EmptyState({ title, subtitle, primaryActionLabel }) {
+const EmptyState = ({ title, subtitle, primaryActionLabel }) => {
   const { setShowNewNotePane } = useContext(DashboardContext);
 
   return (
@@ -25,4 +25,6 @@ export default function EmptyState({ title, subtitle, primaryActionLabel }) {
       </div>
     </div>
   );
-}
+};
+
+export default EmptyState;
