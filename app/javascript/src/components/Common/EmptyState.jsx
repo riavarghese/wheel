@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 
 import { Button } from "neetoui/v2";
 
-import { NoteContext } from "contexts/note";
+import { DashboardContext } from "contexts/dashboard";
 
 export default function EmptyState({ title, subtitle, primaryActionLabel }) {
-  const { setShowNewNotePane } = useContext(NoteContext);
+  const { setShowNewNotePane } = useContext(DashboardContext);
 
   return (
     <div className="flex flex-row items-start justify-start w-full h-full">
