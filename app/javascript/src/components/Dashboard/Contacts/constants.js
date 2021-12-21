@@ -1,8 +1,3 @@
-import React from "react";
-
-import { MenuHorizontal } from "@bigbinary/neeto-icons";
-import { Dropdown } from "@bigbinary/neetoui/v2";
-
 import { nameAndRole } from "./utils";
 
 export const COLUMNS = [
@@ -24,14 +19,9 @@ export const COLUMNS = [
   {
     dataIndex: "options",
     key: "options",
-    render: () => (
-      <Dropdown icon={MenuHorizontal} buttonStyle="text">
-        <li>Edit</li>
-        <li>Delete</li>
-      </Dropdown>
-    ),
   },
 ];
+
 export const CONTACTS = [
   {
     name_role: nameAndRole({ name: "Ronald Richards", role: "Owner" }),

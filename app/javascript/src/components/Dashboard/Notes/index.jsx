@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 
+import DeleteModal from "components/Common/DeleteModal";
 import AppHeader from "components/Common/Header";
 import Menubar from "components/Common/Menubar";
 import { DashboardContext } from "contexts/dashboard";
 
-import DeleteModal from "./DeleteModal";
 import NoteList from "./List";
 import NewNotePane from "./Pane/CreateNote";
 

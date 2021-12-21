@@ -6,6 +6,7 @@ export const DashboardContext = React.createContext();
 const DashboardProvider = ({ children }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedNote, setSelectedNote] = useState();
+  const [selectedContact, setSelectedContact] = useState();
   const [showNewNotePane, setShowNewNotePane] = useState(false);
   const [showNewContactPane, setShowNewContactPane] = useState(false);
 
@@ -20,6 +21,8 @@ const DashboardProvider = ({ children }) => {
         setShowNewNotePane,
         showNewContactPane,
         setShowNewContactPane,
+        selectedContact,
+        setSelectedContact,
       }}
     >
       {children}
