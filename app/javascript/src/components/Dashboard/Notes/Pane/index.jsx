@@ -7,7 +7,7 @@ import { DashboardContext } from "contexts/dashboard";
 
 import NoteForm from "./Form";
 
-export default function NewNotePane() {
+const NewNotePane = () => {
   const { showNewNotePane, setShowNewNotePane } = useContext(DashboardContext);
 
   return (
@@ -20,4 +20,6 @@ export default function NewNotePane() {
       <NoteForm note={formInitialValues.notesForm} />
     </Pane>
   );
-}
+};
+
+export default NewNotePane;

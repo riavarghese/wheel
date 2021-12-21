@@ -2,7 +2,7 @@ import React from "react";
 
 import { Route, Redirect, Switch } from "react-router-dom";
 
-import Sidebar from "components/Common/Sidebar";
+import Sidenav from "components/Common/Sidebar";
 import { DashboardProvider } from "contexts/dashboard";
 
 import Profile from "./Account/Profile";
@@ -12,7 +12,7 @@ import Notes from "./Notes";
 const Home = () => {
   return (
     <div className="flex w-full h-screen">
-      <Sidebar />
+      <Sidenav />
       <DashboardProvider>
         <Switch>
           <Route path="/notes" component={Notes} />

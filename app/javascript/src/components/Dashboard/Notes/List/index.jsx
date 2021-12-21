@@ -5,7 +5,7 @@ import { SAMPLE_NOTES } from "components/Dashboard/Notes/constants";
 
 import Note from "./Note";
 
-export default function NoteList() {
+const NoteList = () => {
   const isNotesNotEmpty = !!SAMPLE_NOTES.length;
 
   return (
@@ -23,4 +23,6 @@ export default function NoteList() {
       )}
     </div>
   );
-}
+};
+
+export default NoteList;
