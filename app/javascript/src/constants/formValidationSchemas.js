@@ -29,4 +29,12 @@ export default {
     assignedContact: Yup.object().required("Assigned contact is required"),
     tags: Yup.object().required("Tag is required"),
   }),
+  contactsForm: Yup.object().shape({
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
+    email: Yup.string()
+      .email("Email should be valid")
+      .required("Email address is required"),
+    role: Yup.object().required("Role is required"),
+  }),
 };

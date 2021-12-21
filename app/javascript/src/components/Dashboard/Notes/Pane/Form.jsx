@@ -18,7 +18,7 @@ export default function NoteForm({ note, isEdit }) {
   const [submitted, setSubmitted] = useState(false);
   const { setShowNewNotePane } = useContext(DashboardContext);
 
-  const handleSubmit = async values => {
+  const handleSubmit = values => {
     const day = new Date().toLocaleString("en-US", {
       weekday: "long",
     });

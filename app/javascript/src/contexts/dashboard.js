@@ -7,6 +7,7 @@ const DashboardProvider = ({ children }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedNote, setSelectedNote] = useState();
   const [showNewNotePane, setShowNewNotePane] = useState(false);
+  const [showNewContactPane, setShowNewContactPane] = useState(false);
 
   return (
     <DashboardContext.Provider
@@ -17,6 +18,8 @@ const DashboardProvider = ({ children }) => {
         setSelectedNote,
         showNewNotePane,
         setShowNewNotePane,
+        showNewContactPane,
+        setShowNewContactPane,
       }}
     >
       {children}
