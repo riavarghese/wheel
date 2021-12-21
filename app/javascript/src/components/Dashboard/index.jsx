@@ -11,13 +11,16 @@ import Notes from "./Notes";
 import Settings from "./Settings";
 
 const Home = () => {
+  const NotesComponent = () => (
+    <NoteProvider>
+      <Notes />
+    </NoteProvider>
+  );
   return (
     <div className="flex w-full h-screen">
       <Sidebar />
       <Switch>
-        <NoteProvider>
-          <Route exact path="/notes" component={Notes} />
-        </NoteProvider>
+        <Route path="/notes" render={NotesComponent} />
         <Route exact path="/contacts" component={Contacts} />
         <Route exact path="/settings" component={Settings} />
         <Route exact path="/my/profile" component={Profile} />

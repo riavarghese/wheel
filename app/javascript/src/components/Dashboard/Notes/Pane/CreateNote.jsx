@@ -14,14 +14,10 @@ export default function NewNotePane() {
     <Pane isOpen={showNewNotePane} onClose={() => setShowNewNotePane(false)}>
       <Pane.Header>
         <Typography style="h2" weight="semibold">
-          Create a New Note
+          Add New Note
         </Typography>
       </Pane.Header>
-      <Form
-        onClose={() => setShowNewNotePane(false)}
-        note={formInitialValues.notesForm}
-        isEdit={false}
-      />
+      <Form note={formInitialValues.notesForm} isEdit={false} />
     </Pane>
   );
 }
