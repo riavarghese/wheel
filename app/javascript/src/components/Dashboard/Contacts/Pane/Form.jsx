@@ -10,7 +10,7 @@ import { DashboardContext } from "contexts/dashboard";
 import { MONTHS, CONTACTS, FORM_ROLE_DROPDOWN } from "../constants";
 import { nameAndRole } from "../utils";
 
-const ContactForm = ({ contact, isEdit }) => {
+const ContactForm = ({ contact }) => {
   const [submitted, setSubmitted] = useState(false);
   const { setShowNewContactPane } = useContext(DashboardContext);
 
@@ -80,7 +80,7 @@ const ContactForm = ({ contact, isEdit }) => {
           <Pane.Footer>
             <Button
               type="submit"
-              label={isEdit ? "Update" : "Save Changes"}
+              label="Save Changes"
               size="large"
               style="primary"
               className="mr-3"

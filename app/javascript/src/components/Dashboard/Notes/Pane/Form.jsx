@@ -14,7 +14,7 @@ import {
   SAMPLE_NOTES,
 } from "../constants";
 
-export default function NoteForm({ note, isEdit }) {
+export default function NoteForm({ note }) {
   const [submitted, setSubmitted] = useState(false);
   const { setShowNewNotePane } = useContext(DashboardContext);
 
@@ -88,7 +88,7 @@ export default function NoteForm({ note, isEdit }) {
           <Pane.Footer>
             <Button
               type="submit"
-              label={isEdit ? "Update" : "Save Changes"}
+              label="Save Changes"
               size="large"
               style="primary"
               className="mr-3"

@@ -6,7 +6,7 @@ import Menubar from "components/Common/Menubar";
 import { DashboardContext } from "contexts/dashboard";
 
 import NoteList from "./List";
-import NewNotePane from "./Pane/CreateNote";
+import NewNotePane from "./Pane";
 
 const Notes = () => {
   const [showMenu, setShowMenu] = useState(false);
