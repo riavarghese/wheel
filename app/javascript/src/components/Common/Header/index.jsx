@@ -3,12 +3,7 @@ import React from "react";
 import { Button } from "neetoui/v2";
 import { Header } from "neetoui/v2/layouts";
 
-const AppHeader = ({
-  isContactsPage,
-  showMenu,
-  setShowMenu,
-  setShowNewNotePane,
-}) => {
+const AppHeader = ({ isContactsPage, showMenu, setShowMenu, buttonAction }) => {
   return (
     <Header
       title={isContactsPage ? "All Contacts" : "All Notes"}
@@ -18,7 +13,7 @@ const AppHeader = ({
       }}
       actionBlock={
         <Button
-          onClick={() => setShowNewNotePane(true)}
+          onClick={buttonAction}
           label={isContactsPage ? "Add Contact" : "Add New Note"}
           icon="ri-add-line"
         />

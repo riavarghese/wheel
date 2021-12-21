@@ -19,7 +19,7 @@ const Notes = () => {
         <AppHeader
           setShowMenu={setShowMenu}
           showMenu={showMenu}
-          setShowNewNotePane={setShowNewNotePane}
+          buttonAction={() => setShowNewNotePane(true)}
         />
         <NoteList />
         <NewNotePane />

@@ -5,7 +5,7 @@ import { Pane, Typography } from "neetoui/v2";
 import formInitialValues from "constants/formInitialValues";
 import { DashboardContext } from "contexts/dashboard";
 
-import Form from "./Form";
+import NoteForm from "./Form";
 
 export default function NewNotePane() {
   const { showNewNotePane, setShowNewNotePane } = useContext(DashboardContext);
@@ -17,7 +17,7 @@ export default function NewNotePane() {
           Add New Note
         </Typography>
       </Pane.Header>
-      <Form note={formInitialValues.notesForm} isEdit={false} />
+      <NoteForm note={formInitialValues.notesForm} isEdit={false} />
     </Pane>
   );
 }

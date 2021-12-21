@@ -1,21 +1,9 @@
 import React from "react";
 
 import { MenuHorizontal } from "@bigbinary/neeto-icons";
-import { Dropdown, Avatar, Typography } from "@bigbinary/neetoui/v2";
+import { Dropdown } from "@bigbinary/neetoui/v2";
 
-const nameAndRole = name => {
-  return (
-    <div className="flex items-center gap-x-2">
-      <Avatar size="medium" user={{ name }} />
-      <div>
-        <Typography style="h5" className="text-gray-800">
-          {name}
-        </Typography>
-        <Typography style="body3">Owner</Typography>
-      </div>
-    </div>
-  );
-};
+import { nameAndRole } from "./utils";
 
 export const COLUMNS = [
   {
@@ -46,15 +34,75 @@ export const COLUMNS = [
 ];
 export const CONTACTS = [
   {
-    name_role: nameAndRole("Ronald Richards"),
+    name_role: nameAndRole({ name: "Ronald Richards", role: "Owner" }),
     email: "albert@borer.com",
     created_at: "Feb, 5, 2021",
   },
   {
-    name_role: nameAndRole("Jacob Jones"),
+    name_role: nameAndRole({ name: "Jacob Jones", role: "Owner" }),
+    email: "albert@borer.com",
+    created_at: "Feb, 5, 2021",
+  },
+  {
+    name_role: nameAndRole({ name: "Ronald Richards", role: "Owner" }),
+    email: "albert@borer.com",
+    created_at: "Feb, 5, 2021",
+  },
+  {
+    name_role: nameAndRole({ name: "Jacob Jones", role: "Owner" }),
+    email: "albert@borer.com",
+    created_at: "Feb, 5, 2021",
+  },
+  {
+    name_role: nameAndRole({ name: "Ronald Richards", role: "Owner" }),
+    email: "albert@borer.com",
+    created_at: "Feb, 5, 2021",
+  },
+  {
+    name_role: nameAndRole({ name: "Jacob Jones", role: "Owner" }),
+    email: "albert@borer.com",
+    created_at: "Feb, 5, 2021",
+  },
+  {
+    name_role: nameAndRole({ name: "Ronald Richards", role: "Owner" }),
+    email: "albert@borer.com",
+    created_at: "Feb, 5, 2021",
+  },
+  {
+    name_role: nameAndRole({ name: "Jacob Jones", role: "Owner" }),
     email: "albert@borer.com",
     created_at: "Feb, 5, 2021",
   },
 ];
 
 export const RECORDS_LENGTH = 15;
+
+export const FORM_ROLE_DROPDOWN = [
+  {
+    label: "Owner",
+    value: "owner",
+  },
+  {
+    label: "User",
+    value: "user",
+  },
+  {
+    label: "Administrator",
+    value: "administrator",
+  },
+];
+
+export const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sept",
+  "Oct",
+  "Nov",
+  "Dec",
+];
