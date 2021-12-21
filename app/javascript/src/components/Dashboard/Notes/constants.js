@@ -37,8 +37,6 @@ export const SAMPLE_NOTES = [
   },
 ];
 
-export const SEARCH_PLACEHOLDER = "Search Name, Email, Phone Number, Etc.";
-
 export const FORM_CONTACTS_DROPDOWN = [
   {
     label: "Oliver",

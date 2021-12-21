@@ -3,12 +3,12 @@ import React, { useContext } from "react";
 import { Pane, Typography } from "neetoui/v2";
 
 import formInitialValues from "constants/formInitialValues";
-import { NoteContext } from "contexts/note";
+import { DashboardContext } from "contexts/dashboard";
 
 import Form from "./Form";
 
 export default function NewNotePane() {
-  const { showNewNotePane, setShowNewNotePane } = useContext(NoteContext);
+  const { showNewNotePane, setShowNewNotePane } = useContext(DashboardContext);
 
   return (
     <Pane isOpen={showNewNotePane} onClose={() => setShowNewNotePane(false)}>

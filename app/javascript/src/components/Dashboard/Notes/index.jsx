@@ -1,43 +1,25 @@
 import React, { useState, useContext } from "react";
 
-import { Button } from "neetoui/v2";
-import { Header } from "neetoui/v2/layouts";
+import AppHeader from "components/Common/Header";
+import Menubar from "components/Common/Menubar";
+import { DashboardContext } from "contexts/dashboard";
 
-import { NoteContext } from "contexts/note";
-
-import { SEARCH_PLACEHOLDER } from "./constants";
 import DeleteModal from "./DeleteModal";
 import NoteList from "./List";
 import NewNotePane from "./Pane/CreateNote";
 
-import Menubar from "../../Common/Menubar";
-
 const Notes = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
-  const { setShowNewNotePane, showDeleteModal } = useContext(NoteContext);
+  const { setShowNewNotePane, showDeleteModal } = useContext(DashboardContext);
 
   return (
     <div className="w-full flex">
-      <Menubar
-        showMenu={showMenu}
-        isSearchCollapsed={isSearchCollapsed}
-        setIsSearchCollapsed={setIsSearchCollapsed}
-      />
+      <Menubar showMenu={showMenu} />
       <div className="w-full px-8 mb-8 overflow-y-auto">
-        <Header
-          title="All Notes"
-          menuBarToggle={() => setShowMenu(!showMenu)}
-          searchProps={{
-            placeholder: SEARCH_PLACEHOLDER,
-          }}
-          actionBlock={
-            <Button
-              onClick={() => setShowNewNotePane(true)}
-              label="Add New Note"
-              icon="ri-add-line"
-            />
-          }
+        <AppHeader
+          setShowMenu={setShowMenu}
+          showMenu={showMenu}
+          setShowNewNotePane={setShowNewNotePane}
         />
         <NoteList />
         <NewNotePane />

@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 
 import { Typography, Button, Toastr, Modal } from "neetoui/v2";
 
-import { NoteContext } from "contexts/note";
+import { DashboardContext } from "contexts/dashboard";
 
 import { SAMPLE_NOTES } from "./constants";
 
 const DeleteModal = () => {
-  const { selectedNote, setShowDeleteModal } = useContext(NoteContext);
+  const { selectedNote, setShowDeleteModal } = useContext(DashboardContext);
 
   const handleDelete = () => {
     SAMPLE_NOTES.splice(selectedNote, 1);

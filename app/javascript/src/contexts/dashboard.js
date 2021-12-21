@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
 /* eslint-disable import/exports-last */
-export const NoteContext = React.createContext();
+export const DashboardContext = React.createContext();
 
-const NoteProvider = ({ children }) => {
+const DashboardProvider = ({ children }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedNote, setSelectedNote] = useState();
   const [showNewNotePane, setShowNewNotePane] = useState(false);
 
   return (
-    <NoteContext.Provider
+    <DashboardContext.Provider
       value={{
         showDeleteModal,
         setShowDeleteModal,
@@ -20,8 +20,8 @@ const NoteProvider = ({ children }) => {
       }}
     >
       {children}
-    </NoteContext.Provider>
+    </DashboardContext.Provider>
   );
 };
 
-export { NoteProvider };
+export { DashboardProvider };

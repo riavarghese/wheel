@@ -6,7 +6,7 @@ import { Toastr, Button, Pane } from "neetoui/v2";
 import { Input, Textarea, Select } from "neetoui/v2/formik";
 
 import formValidationSchemas from "constants/formValidationSchemas";
-import { NoteContext } from "contexts/note";
+import { DashboardContext } from "contexts/dashboard";
 
 import {
   FORM_TAGS_DROPDOWN,
@@ -16,7 +16,7 @@ import {
 
 export default function NoteForm({ note, isEdit }) {
   const [submitted, setSubmitted] = useState(false);
-  const { setShowNewNotePane } = useContext(NoteContext);
+  const { setShowNewNotePane } = useContext(DashboardContext);
 
   const handleSubmit = async values => {
     const day = new Date().toLocaleString("en-US", {

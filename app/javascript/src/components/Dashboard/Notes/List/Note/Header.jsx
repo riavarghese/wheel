@@ -3,10 +3,10 @@ import React, { useContext } from "react";
 import { MenuVertical } from "@bigbinary/neeto-icons";
 import { Typography, Dropdown } from "@bigbinary/neetoui/v2";
 
-import { NoteContext } from "contexts/note";
+import { DashboardContext } from "contexts/dashboard";
 
 const NoteHeader = ({ note, index }) => {
-  const { setShowDeleteModal, setSelectedNote } = useContext(NoteContext);
+  const { setShowDeleteModal, setSelectedNote } = useContext(DashboardContext);
 
   const handleDelete = () => {
     setSelectedNote(index);
