@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Settings, Plus, Search } from "@bigbinary/neeto-icons";
-import { Typography } from "@bigbinary/neetoui/v2";
-import { MenuBar } from "@bigbinary/neetoui/v2/layouts";
+import { Settings, Plus, Search } from "neetoicons";
+import { Typography } from "neetoui/v2";
+import { MenuBar } from "neetoui/v2/layouts";
 
 const Menubar = ({ showMenu, isContactsPage }) => {
   return (

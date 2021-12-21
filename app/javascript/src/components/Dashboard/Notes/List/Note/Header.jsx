@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
-import { MenuVertical } from "@bigbinary/neeto-icons";
-import { Typography, Dropdown } from "@bigbinary/neetoui/v2";
+import { MenuVertical } from "neetoicons";
+import { Typography, Dropdown } from "neetoui/v2";
 
 import { DashboardContext } from "contexts/dashboard";
 

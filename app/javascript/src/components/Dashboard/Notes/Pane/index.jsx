@@ -17,7 +17,7 @@ export default function NewNotePane() {
           Add New Note
         </Typography>
       </Pane.Header>
-      <NoteForm note={formInitialValues.notesForm} isEdit={false} />
+      <NoteForm note={formInitialValues.notesForm} />
     </Pane>
   );
 }

@@ -4,13 +4,16 @@ import { Formik, Form } from "formik";
 import { Toastr, Button, Pane } from "neetoui/v2";
 import { Input, Select } from "neetoui/v2/formik";
 
+import {
+  MONTHS,
+  CONTACTS,
+  FORM_ROLE_DROPDOWN,
+} from "components/Dashboard/Contacts/constants";
+import { formatNameAndRole } from "components/Dashboard/Contacts/utils";
 import formValidationSchemas from "constants/formValidationSchemas";
 import { DashboardContext } from "contexts/dashboard";
 
-import { MONTHS, CONTACTS, FORM_ROLE_DROPDOWN } from "../constants";
-import { nameAndRole } from "../utils";
-
-const ContactForm = ({ contact, isEdit }) => {
+const ContactForm = ({ contact }) => {
   const [submitted, setSubmitted] = useState(false);
   const { setShowNewContactPane } = useContext(DashboardContext);
 
@@ -21,17 +24,18 @@ const ContactForm = ({ contact, isEdit }) => {
       MONTHS[date.getMonth()]
     }, ${date.getDate()}, ${date.getFullYear()}`;
 
-    CONTACTS.unshift({
+    const newContact = {
       ...values,
-      name_role: nameAndRole({
+      name_role: formatNameAndRole({
         name: `${values.firstName} ${values.lastName}`,
         role: values.role.label,
       }),
       created_at: createdAt,
-    });
+    };
 
+    CONTACTS.unshift(newContact);
     setShowNewContactPane(false);
-    Toastr.success("Successfully created contact.");
+    Toastr.success("Contact created successfully.");
   };
 
   return (
@@ -80,7 +84,7 @@ const ContactForm = ({ contact, isEdit }) => {
           <Pane.Footer>
             <Button
               type="submit"
-              label={isEdit ? "Update" : "Save Changes"}
+              label="Save Changes"
               size="large"
               style="primary"
               className="mr-3"

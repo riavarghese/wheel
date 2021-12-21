@@ -21,7 +21,7 @@ export default function NewContactPane() {
           Add New Contact
         </Typography>
       </Pane.Header>
-      <ContactForm contact={formInitialValues.contactsForm} isEdit={false} />
+      <ContactForm contact={formInitialValues.contactsForm} />
     </Pane>
   );
 }
