@@ -1,27 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { Formik, Form } from "formik";
-import { Button, Pane } from "neetoui/v2";
-import { Input, Textarea } from "neetoui/v2/formik";
+import moment from "moment";
+import { Toastr, Button, Pane } from "neetoui/v2";
+import { Input, Textarea, Select } from "neetoui/v2/formik";
 
-import notesApi from "apis/notes";
 import formValidationSchemas from "constants/formValidationSchemas";
+import { NoteContext } from "contexts/note";
 
-export default function NoteForm({ onClose, refetch, note, isEdit }) {
+import {
+  FORM_TAGS_DROPDOWN,
+  FORM_CONTACTS_DROPDOWN,
+  SAMPLE_NOTES,
+} from "../constants";
+
+export default function NoteForm({ note, isEdit }) {
   const [submitted, setSubmitted] = useState(false);
+  const { setShowNewNotePane } = useContext(NoteContext);
+
   const handleSubmit = async values => {
-    try {
-      setSubmitted(true);
-      if (isEdit) {
-        await notesApi.update(note.id, values);
-      } else {
-        await notesApi.create(values);
-      }
-      refetch();
-      onClose();
-    } catch (err) {
-      logger.error(err);
-    }
+    const day = new Date().toLocaleString("en-US", {
+      weekday: "long",
+    });
+
+    const time = new Date().toLocaleString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+
+    const createdAt = moment().fromNow();
+
+    SAMPLE_NOTES.unshift({
+      ...values,
+      label: values.tags.label,
+      time: `${day}, ${time}`,
+      created: `Created ${createdAt}`,
+      imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    });
+
+    setShowNewNotePane(false);
+    Toastr.success("Successfully created note.");
   };
 
   return (
@@ -39,13 +58,30 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
               label="Title"
               name="title"
               className="flex-grow-0 w-full"
+              placeholder="Enter note title"
               required
             />
             <Textarea
               label="Description"
               name="description"
               className="flex-grow-0 w-full"
-              rows={8}
+              placeholder="Enter note description"
+              required
+            />
+            <Select
+              label="Assigned Contact"
+              name="assignedContact"
+              className="flex-grow-0 w-full"
+              options={FORM_CONTACTS_DROPDOWN}
+              placeholder="Select Role"
+              required
+            />
+            <Select
+              label="Tags"
+              name="tags"
+              className="flex-grow-0 w-full"
+              options={FORM_TAGS_DROPDOWN}
+              placeholder="Select Role"
               required
             />
           </Pane.Body>
@@ -65,7 +101,7 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
               }}
             />
             <Button
-              onClick={onClose}
+              onClick={() => setShowNewNotePane(false)}
               label="Cancel"
               size="large"
               style="text"

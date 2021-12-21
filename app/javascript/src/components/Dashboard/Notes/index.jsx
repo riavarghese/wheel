@@ -24,7 +24,7 @@ const Notes = () => {
         isSearchCollapsed={isSearchCollapsed}
         setIsSearchCollapsed={setIsSearchCollapsed}
       />
-      <div className="w-full px-8">
+      <div className="w-full px-8 mb-8 overflow-y-auto">
         <Header
           title="All Notes"
           menuBarToggle={() => setShowMenu(!showMenu)}

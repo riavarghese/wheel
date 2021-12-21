@@ -16,5 +16,7 @@ export default {
   notesForm: {
     title: "",
     description: "",
+    assignedContact: "",
+    tags: "",
   },
 };
