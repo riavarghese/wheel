@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { Formik, Form } from "formik";
-import moment from "moment";
 import { Toastr, Button, Pane } from "neetoui/v2";
 import { Input, Textarea, Select } from "neetoui/v2/formik";
 
@@ -29,7 +30,8 @@ const NoteForm = () => {
       hour12: true,
     });
 
-    const createdAt = moment().fromNow();
+    dayjs.extend(relativeTime);
+    const createdAt = dayjs().toNow();
 
     SAMPLE_NOTES.unshift({
       ...values,
