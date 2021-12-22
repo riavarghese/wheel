@@ -4,9 +4,6 @@ import Body from "./Body";
 import Footer from "./Footer";
 import Header from "./Header";
 
-/* eslint-disable import/exports-last */
-export const NoteContext = React.createContext();
-
 const Card = ({ note, index }) => {
   return (
     <div className="border border-gray-300 p-4 shadow-sm mb-4 rounded-sm">
