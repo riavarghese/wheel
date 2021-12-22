@@ -1,3 +1,5 @@
+import * as Yup from "yup";
+
 import { formatNameAndRole } from "./utils";
 
 export const RECORDS_LENGTH = 15;
@@ -96,3 +98,19 @@ export const MONTHS = [
   "Nov",
   "Dec",
 ];
+
+export const CONTACT_INITIAL_VALUES = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  role: "",
+};
+
+export const CONTACT_VALIDATION_SCHEMA = Yup.object().shape({
+  firstName: Yup.string().required("First name is required"),
+  lastName: Yup.string().required("Last name is required"),
+  email: Yup.string()
+    .email("Email should be valid")
+    .required("Email address is required"),
+  role: Yup.object().required("Role is required"),
+});

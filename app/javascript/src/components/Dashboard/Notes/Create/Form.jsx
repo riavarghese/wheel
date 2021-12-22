@@ -1,19 +1,21 @@
 import React, { useState, useContext } from "react";
 
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { Formik, Form } from "formik";
-import moment from "moment";
 import { Toastr, Button, Pane } from "neetoui/v2";
 import { Input, Textarea, Select } from "neetoui/v2/formik";
 
 import {
+  NOTE_INITIAL_VALUES,
+  NOTE_VALIDATION_SCHEMA,
   FORM_TAGS_DROPDOWN,
   FORM_CONTACTS_DROPDOWN,
   SAMPLE_NOTES,
 } from "components/Dashboard/Notes/constants";
-import formValidationSchemas from "constants/formValidationSchemas";
 import { DashboardContext } from "contexts/dashboard";
 
-const NoteForm = ({ note }) => {
+const NoteForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const { setIsNewNotePaneOpen } = useContext(DashboardContext);
 
@@ -28,7 +30,8 @@ const NoteForm = ({ note }) => {
       hour12: true,
     });
 
-    const createdAt = moment().fromNow();
+    dayjs.extend(relativeTime);
+    const createdAt = dayjs().toNow();
 
     SAMPLE_NOTES.unshift({
       ...values,
@@ -44,45 +47,41 @@ const NoteForm = ({ note }) => {
 
   return (
     <Formik
-      initialValues={note}
+      initialValues={NOTE_INITIAL_VALUES}
       onSubmit={handleSubmit}
       validateOnBlur={submitted}
       validateOnChange={submitted}
-      validationSchema={formValidationSchemas.notesForm}
+      validationSchema={NOTE_VALIDATION_SCHEMA}
     >
       {({ isSubmitting, handleSubmit }) => (
         <Form className="w-full">
           <Pane.Body className="space-y-6">
             <Input
-              label="Title"
+              label="Title*"
               name="title"
               className="flex-grow-0 w-full"
               placeholder="Enter note title"
-              required
             />
             <Textarea
-              label="Description"
+              label="Description*"
               name="description"
               className="flex-grow-0 w-full"
               placeholder="Enter note description"
               rows={1}
-              required
             />
             <Select
-              label="Assigned Contact"
+              label="Assigned Contact*"
               name="assignedContact"
               className="flex-grow-0 w-full"
               options={FORM_CONTACTS_DROPDOWN}
               placeholder="Select Role"
-              required
             />
             <Select
-              label="Tags"
+              label="Tags*"
               name="tags"
               className="flex-grow-0 w-full"
               options={FORM_TAGS_DROPDOWN}
               placeholder="Select Role"
-              required
             />
           </Pane.Body>
           <Pane.Footer>
