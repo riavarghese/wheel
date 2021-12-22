@@ -7,12 +7,12 @@ import { DashboardContext } from "contexts/dashboard";
 
 const Header = ({ children }) => {
   const { note, index } = children;
-  const { setIsDeleteModalOpen, setSelectedNote } =
+  const { setIsDeleteAlertOpen, setSelectedNote } =
     useContext(DashboardContext);
 
   const handleDelete = () => {
     setSelectedNote(index);
-    setIsDeleteModalOpen(true);
+    setIsDeleteAlertOpen(true);
   };
 
   return (

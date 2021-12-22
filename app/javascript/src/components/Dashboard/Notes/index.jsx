@@ -10,7 +10,7 @@ import NotesList from "./List";
 
 const Notes = () => {
   const [isMenuBarOpen, setIsMenuBarOpen] = useState(false);
-  const { setIsNewNotePaneOpen, isDeleteModalOpen } =
+  const { setIsNewNotePaneOpen, isDeleteAlertOpen } =
     useContext(DashboardContext);
 
   return (
@@ -24,7 +24,7 @@ const Notes = () => {
         />
         <NotesList />
         <CreateNote />
-        {isDeleteModalOpen && <DeleteNote />}
+        {isDeleteAlertOpen && <DeleteNote />}
       </div>
     </div>
   );
