@@ -6,7 +6,7 @@ import MenuBar from "Common/Menubar";
 import { DashboardContext } from "contexts/dashboard";
 
 import CreateNote from "./Create";
-import NoteList from "./List";
+import NotesList from "./List";
 
 const Notes = () => {
   const [isMenuBarOpen, setIsMenuBarOpen] = useState(false);
@@ -22,7 +22,7 @@ const Notes = () => {
           isMenuBarOpen={isMenuBarOpen}
           buttonAction={() => setIsNewNotePaneOpen(true)}
         />
-        <NoteList />
+        <NotesList />
         <CreateNote />
         {isDeleteModalOpen && <DeleteNote />}
       </div>
