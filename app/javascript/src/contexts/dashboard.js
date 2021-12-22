@@ -4,7 +4,7 @@ import React, { useState } from "react";
 export const DashboardContext = React.createContext();
 
 const DashboardProvider = ({ children }) => {
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false);
   const [selectedNote, setSelectedNote] = useState();
   const [selectedContact, setSelectedContact] = useState();
   const [isNewNotePaneOpen, setIsNewNotePaneOpen] = useState(false);
@@ -13,8 +13,8 @@ const DashboardProvider = ({ children }) => {
   return (
     <DashboardContext.Provider
       value={{
-        isDeleteModalOpen,
-        setIsDeleteModalOpen,
+        isDeleteAlertOpen,
+        setIsDeleteAlertOpen,
         selectedNote,
         setSelectedNote,
         isNewNotePaneOpen,

@@ -13,7 +13,7 @@ import ContactsTable from "./Table";
 const Contacts = () => {
   const [isMenuBarOpen, setIsMenuBarOpen] = useState(false);
   const isContactsNotEmpty = !!CONTACTS.length;
-  const { isDeleteModalOpen, setIsNewContactPaneOpen } =
+  const { isDeleteAlertOpen, setIsNewContactPaneOpen } =
     useContext(DashboardContext);
 
   return (
@@ -36,7 +36,7 @@ const Contacts = () => {
           />
         )}
         <CreateContact />
-        {isDeleteModalOpen && <DeleteContact isContactsPage />}
+        {isDeleteAlertOpen && <DeleteContact isContactsPage />}
       </div>
     </div>
   );
