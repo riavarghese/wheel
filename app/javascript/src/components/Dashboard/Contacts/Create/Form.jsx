@@ -15,7 +15,7 @@ import { DashboardContext } from "contexts/dashboard";
 
 const ContactForm = ({ contact }) => {
   const [submitted, setSubmitted] = useState(false);
-  const { setShowNewContactPane } = useContext(DashboardContext);
+  const { setIsNewContactPaneOpen } = useContext(DashboardContext);
 
   const handleSubmit = values => {
     const date = new Date();
@@ -34,7 +34,7 @@ const ContactForm = ({ contact }) => {
     };
 
     CONTACTS.unshift(newContact);
-    setShowNewContactPane(false);
+    setIsNewContactPaneOpen(false);
     Toastr.success("Contact created successfully.");
   };
 
@@ -97,7 +97,7 @@ const ContactForm = ({ contact }) => {
               }}
             />
             <Button
-              onClick={() => setShowNewContactPane(false)}
+              onClick={() => setIsNewContactPaneOpen(false)}
               label="Cancel"
               size="large"
               style="text"

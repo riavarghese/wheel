@@ -5,21 +5,25 @@ import { Pane, Typography } from "neetoui/v2";
 import formInitialValues from "constants/formInitialValues";
 import { DashboardContext } from "contexts/dashboard";
 
-import NoteForm from "./Form";
+import Form from "./Form";
 
-const NewNotePane = () => {
-  const { showNewNotePane, setShowNewNotePane } = useContext(DashboardContext);
+const Create = () => {
+  const { isNewNotePaneOpen, setIsNewNotePaneOpen } =
+    useContext(DashboardContext);
 
   return (
-    <Pane isOpen={showNewNotePane} onClose={() => setShowNewNotePane(false)}>
+    <Pane
+      isOpen={isNewNotePaneOpen}
+      onClose={() => setIsNewNotePaneOpen(false)}
+    >
       <Pane.Header>
         <Typography style="h2" weight="semibold">
           Add New Note
         </Typography>
       </Pane.Header>
-      <NoteForm note={formInitialValues.notesForm} />
+      <Form note={formInitialValues.notesForm} />
     </Pane>
   );
 };
 
-export default NewNotePane;
+export default Create;

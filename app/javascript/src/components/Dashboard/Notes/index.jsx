@@ -1,29 +1,30 @@
 import React, { useState, useContext } from "react";
 
-import DeleteModal from "components/Common/DeleteModal";
-import AppHeader from "components/Common/Header";
-import Menubar from "components/Common/Menubar";
+import DeleteNote from "Common/Delete";
+import AppHeader from "Common/Header";
+import MenuBar from "Common/Menubar";
 import { DashboardContext } from "contexts/dashboard";
 
-import NoteList from "./List";
-import NewNotePane from "./Pane";
+import CreateNote from "./Create";
+import NotesList from "./List";
 
 const Notes = () => {
-  const [showMenu, setShowMenu] = useState(false);
-  const { setShowNewNotePane, showDeleteModal } = useContext(DashboardContext);
+  const [isMenuBarOpen, setIsMenuBarOpen] = useState(false);
+  const { setIsNewNotePaneOpen, isDeleteModalOpen } =
+    useContext(DashboardContext);
 
   return (
     <div className="w-full flex">
-      <Menubar showMenu={showMenu} />
+      <MenuBar isMenuBarOpen={isMenuBarOpen} />
       <div className="w-full px-8 mb-8 overflow-y-auto">
         <AppHeader
-          setShowMenu={setShowMenu}
-          showMenu={showMenu}
-          buttonAction={() => setShowNewNotePane(true)}
+          setIsMenuBarOpen={setIsMenuBarOpen}
+          isMenuBarOpen={isMenuBarOpen}
+          buttonAction={() => setIsNewNotePaneOpen(true)}
         />
-        <NoteList />
-        <NewNotePane />
-        {showDeleteModal && <DeleteModal />}
+        <NotesList />
+        <CreateNote />
+        {isDeleteModalOpen && <DeleteNote />}
       </div>
     </div>
   );

@@ -1,13 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import { Clock } from "neetoicons";
 import { Typography, Tag, Avatar, Tooltip } from "neetoui/v2";
 
-import { NoteContext } from "components/Dashboard/Notes/List/Note";
-
-const NoteFooter = () => {
-  const { note } = useContext(NoteContext);
-
+const Footer = ({ children }) => {
+  const { note } = children;
   return (
     <div className="flex justify-between items-center pt-4">
       <Tag color="gray" label={note.label} size="small" />
@@ -26,4 +23,4 @@ const NoteFooter = () => {
   );
 };
 
-export default NoteFooter;
+export default Footer;

@@ -4,23 +4,23 @@ import React, { useState } from "react";
 export const DashboardContext = React.createContext();
 
 const DashboardProvider = ({ children }) => {
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedNote, setSelectedNote] = useState();
   const [selectedContact, setSelectedContact] = useState();
-  const [showNewNotePane, setShowNewNotePane] = useState(false);
-  const [showNewContactPane, setShowNewContactPane] = useState(false);
+  const [isNewNotePaneOpen, setIsNewNotePaneOpen] = useState(false);
+  const [isNewContactPaneOpen, setIsNewContactPaneOpen] = useState(false);
 
   return (
     <DashboardContext.Provider
       value={{
-        showDeleteModal,
-        setShowDeleteModal,
+        isDeleteModalOpen,
+        setIsDeleteModalOpen,
         selectedNote,
         setSelectedNote,
-        showNewNotePane,
-        setShowNewNotePane,
-        showNewContactPane,
-        setShowNewContactPane,
+        isNewNotePaneOpen,
+        setIsNewNotePaneOpen,
+        isNewContactPaneOpen,
+        setIsNewContactPaneOpen,
         selectedContact,
         setSelectedContact,
       }}

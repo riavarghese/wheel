@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Error from "components/Common/ErrorBoundary/UI";
+import ErrorUI from "Common/ErrorBoundary/UI";
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <Error />;
+      return <ErrorUI />;
     }
 
     return this.props.children;

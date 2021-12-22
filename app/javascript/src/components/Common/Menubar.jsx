@@ -4,9 +4,12 @@ import { Settings, Plus, Search } from "neetoicons";
 import { Typography } from "neetoui/v2";
 import { MenuBar } from "neetoui/v2/layouts";
 
-const Menubar = ({ showMenu, isContactsPage }) => {
+const Menubar = ({ isMenuBarOpen, isContactsPage }) => {
   return (
-    <MenuBar showMenu={showMenu} title={isContactsPage ? "Contacts" : "Notes"}>
+    <MenuBar
+      showMenu={isMenuBarOpen}
+      title={isContactsPage ? "Contacts" : "Notes"}
+    >
       {isContactsPage ? (
         <>
           <MenuBar.Block label="All" count={13} active />

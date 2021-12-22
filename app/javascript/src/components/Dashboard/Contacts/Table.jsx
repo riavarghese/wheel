@@ -9,12 +9,12 @@ import { CONTACTS, COLUMNS } from "./constants";
 
 const ContactsTable = () => {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
-  const { setSelectedContact, setShowDeleteModal } =
+  const { setSelectedContact, setIsDeleteModalOpen } =
     useContext(DashboardContext);
 
   const handleDelete = selectedContact => {
     setSelectedContact(selectedContact);
-    setShowDeleteModal(true);
+    setIsDeleteModalOpen(true);
   };
 
   const optionsDropdown = selectedContact => {
