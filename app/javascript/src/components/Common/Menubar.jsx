@@ -4,27 +4,10 @@ import { Settings, Plus, Search } from "neetoicons";
 import { Typography } from "neetoui/v2";
 import { MenuBar } from "neetoui/v2/layouts";
 
-const Menubar = ({ isMenuBarOpen, isContactsPage }) => {
+const Menubar = ({ isMenuBarOpen, menubarProps, title }) => {
   return (
-    <MenuBar
-      showMenu={isMenuBarOpen}
-      title={isContactsPage ? "Contacts" : "Notes"}
-    >
-      {isContactsPage ? (
-        <>
-          <MenuBar.Block label="All" count={13} active />
-          <MenuBar.Block label="Archived" count={2} />
-          <MenuBar.Block label="Completed" count={7} />
-          <MenuBar.Block label="Phase 2" count={4} />
-        </>
-      ) : (
-        <>
-          <MenuBar.Block label="All" count={13} active />
-          <MenuBar.Block label="Users" count={2} />
-          <MenuBar.Block label="Leads" count={7} />
-          <MenuBar.Block label="Visitors" count={4} />
-        </>
-      )}
+    <MenuBar showMenu={isMenuBarOpen} title={title}>
+      {menubarProps.allBlock}
 
       <MenuBar.SubTitle
         iconProps={[
@@ -42,13 +25,7 @@ const Menubar = ({ isMenuBarOpen, isContactsPage }) => {
           Segments
         </Typography>
       </MenuBar.SubTitle>
-      {!isContactsPage && (
-        <>
-          <MenuBar.Block label="Europe" count={80} />
-          <MenuBar.Block label="Middle-East" count={60} />
-          <MenuBar.Block label="Asia" count={60} />
-        </>
-      )}
+      {menubarProps.segmentsBlock}
       <MenuBar.SubTitle
         iconProps={[
           {
@@ -71,13 +48,7 @@ const Menubar = ({ isMenuBarOpen, isContactsPage }) => {
           Tags
         </Typography>
       </MenuBar.SubTitle>
-      {!isContactsPage && (
-        <>
-          <MenuBar.Block label="Sales" count={80} />
-          <MenuBar.Block label="Finance" count={60} />
-          <MenuBar.Block label="User Experience" count={60} />
-        </>
-      )}
+      {menubarProps.tagsBlock}
     </MenuBar>
   );
 };

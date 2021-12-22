@@ -1,3 +1,6 @@
+import React from "react";
+
+import { MenuBar } from "neetoui/v2/layouts";
 import * as Yup from "yup";
 
 import { formatNameAndRole } from "./utils";
@@ -114,3 +117,16 @@ export const CONTACT_VALIDATION_SCHEMA = Yup.object().shape({
     .required("Email address is required"),
   role: Yup.object().required("Role is required"),
 });
+
+export const CONTACTS_MENUBAR_COMPONENTS = {
+  allBlock: (
+    <>
+      <MenuBar.Block label="All" count={13} active />
+      <MenuBar.Block label="Archived" count={2} />
+      <MenuBar.Block label="Completed" count={7} />
+      <MenuBar.Block label="Phase 2" count={4} />
+    </>
+  ),
+  segmentsBlock: null,
+  tagsBlock: null,
+};

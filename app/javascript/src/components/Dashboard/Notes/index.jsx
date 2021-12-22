@@ -5,6 +5,7 @@ import AppHeader from "Common/Header";
 import MenuBar from "Common/Menubar";
 import { DashboardContext } from "contexts/dashboard";
 
+import { NOTES_MENUBAR_COMPONENTS } from "./constants";
 import CreateNote from "./Create";
 import NotesList from "./List";
 
@@ -15,7 +16,11 @@ const Notes = () => {
 
   return (
     <div className="w-full flex">
-      <MenuBar isMenuBarOpen={isMenuBarOpen} />
+      <MenuBar
+        isMenuBarOpen={isMenuBarOpen}
+        menubarProps={NOTES_MENUBAR_COMPONENTS}
+        title="Notes"
+      />
       <div className="w-full px-8 mb-8 overflow-y-auto">
         <AppHeader
           setIsMenuBarOpen={setIsMenuBarOpen}

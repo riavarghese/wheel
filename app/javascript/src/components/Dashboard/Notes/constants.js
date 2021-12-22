@@ -1,3 +1,6 @@
+import React from "react";
+
+import { MenuBar } from "neetoui/v2/layouts";
 import * as Yup from "yup";
 
 export const SAMPLE_NOTES = [
@@ -94,3 +97,28 @@ export const NOTE_VALIDATION_SCHEMA = Yup.object().shape({
   assignedContact: Yup.object().required("Assigned contact is required"),
   tags: Yup.object().required("Tag is required"),
 });
+
+export const NOTES_MENUBAR_COMPONENTS = {
+  allBlock: (
+    <>
+      <MenuBar.Block label="All" count={13} active />
+      <MenuBar.Block label="Archived" count={2} />
+      <MenuBar.Block label="Completed" count={7} />
+      <MenuBar.Block label="Phase 2" count={4} />
+    </>
+  ),
+  segmentsBlock: (
+    <>
+      <MenuBar.Block label="Europe" count={80} />
+      <MenuBar.Block label="Middle-East" count={60} />
+      <MenuBar.Block label="Asia" count={60} />
+    </>
+  ),
+  tagsBlock: (
+    <>
+      <MenuBar.Block label="Sales" count={80} />
+      <MenuBar.Block label="Finance" count={60} />
+      <MenuBar.Block label="User Experience" count={60} />
+    </>
+  ),
+};
