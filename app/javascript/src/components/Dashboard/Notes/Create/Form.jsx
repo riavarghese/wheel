@@ -20,6 +20,8 @@ const NoteForm = () => {
   const { setIsNewNotePaneOpen } = useContext(DashboardContext);
 
   const handleSubmit = values => {
+    setSubmitted(true);
+
     const day = new Date().toLocaleString("en-US", {
       weekday: "long",
     });
@@ -53,7 +55,7 @@ const NoteForm = () => {
       validateOnChange={submitted}
       validationSchema={NOTE_VALIDATION_SCHEMA}
     >
-      {({ isSubmitting, handleSubmit }) => (
+      {({ isSubmitting }) => (
         <Form className="w-full">
           <Pane.Body className="space-y-6">
             <Input
@@ -93,11 +95,6 @@ const NoteForm = () => {
               className="mr-3"
               disabled={isSubmitting}
               loading={isSubmitting}
-              onClick={e => {
-                e.preventDefault();
-                setSubmitted(true);
-                handleSubmit();
-              }}
             />
             <Button
               onClick={() => setIsNewNotePaneOpen(false)}

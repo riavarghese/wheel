@@ -7,7 +7,7 @@ import { DashboardContext } from "contexts/dashboard";
 
 import { CONTACTS, COLUMNS } from "./constants";
 
-const ContactsTable = () => {
+const ContactsList = () => {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
   const { setSelectedContact, setIsDeleteAlertOpen } =
     useContext(DashboardContext);
@@ -44,4 +44,4 @@ const ContactsTable = () => {
   );
 };
 
-export default ContactsTable;
+export default ContactsList;

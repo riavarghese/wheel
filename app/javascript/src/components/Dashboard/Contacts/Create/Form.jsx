@@ -20,6 +20,7 @@ const ContactForm = () => {
 
   const handleSubmit = values => {
     const date = new Date();
+    setSubmitted(true);
 
     const createdAt = `${
       MONTHS[date.getMonth()]
@@ -47,7 +48,7 @@ const ContactForm = () => {
       validateOnChange={submitted}
       validationSchema={CONTACT_VALIDATION_SCHEMA}
     >
-      {({ isSubmitting, handleSubmit }) => (
+      {({ isSubmitting }) => (
         <Form className="w-full">
           <Pane.Body className="space-y-6">
             <div className="flex w-full gap-x-4">
@@ -87,11 +88,6 @@ const ContactForm = () => {
               className="mr-3"
               disabled={isSubmitting}
               loading={isSubmitting}
-              onClick={e => {
-                e.preventDefault();
-                setSubmitted(true);
-                handleSubmit();
-              }}
             />
             <Button
               onClick={() => setIsNewContactPaneOpen(false)}
