@@ -5,7 +5,7 @@ import { Button } from "neetoui/v2";
 import { DashboardContext } from "contexts/dashboard";
 
 const EmptyState = ({ title, subtitle, primaryActionLabel }) => {
-  const { setShowNewNotePane } = useContext(DashboardContext);
+  const { setIsNewNotePaneOpen } = useContext(DashboardContext);
 
   return (
     <div className="flex flex-row items-start justify-start w-full h-full">
@@ -18,7 +18,7 @@ const EmptyState = ({ title, subtitle, primaryActionLabel }) => {
           <Button
             type="primary"
             icon="ri-add-fill"
-            onClick={() => setShowNewNotePane(true)}
+            onClick={() => setIsNewNotePaneOpen(true)}
             label={primaryActionLabel}
           />
         </div>

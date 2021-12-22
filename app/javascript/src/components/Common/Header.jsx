@@ -3,11 +3,16 @@ import React from "react";
 import { Button } from "neetoui/v2";
 import { Header } from "neetoui/v2/layouts";
 
-const AppHeader = ({ isContactsPage, showMenu, setShowMenu, buttonAction }) => {
+const AppHeader = ({
+  isContactsPage,
+  isMenuBarOpen,
+  setIsMenuBarOpen,
+  buttonAction,
+}) => {
   return (
     <Header
       title={isContactsPage ? "All Contacts" : "All Notes"}
-      menuBarToggle={() => setShowMenu(!showMenu)}
+      menuBarToggle={() => setIsMenuBarOpen(!isMenuBarOpen)}
       searchProps={{
         placeholder: "Search Name, Email, Phone Number, Etc.",
       }}

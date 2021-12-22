@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { Typography } from "neetoui/v2";
 
-import { NoteContext } from "components/Dashboard/Notes/List/Note";
+import { NoteContext } from "components/Dashboard/Notes/List/Card";
 
 const NoteBody = () => {
   const { note } = useContext(NoteContext);

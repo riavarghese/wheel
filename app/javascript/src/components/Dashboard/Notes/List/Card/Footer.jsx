@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Clock } from "neetoicons";
 import { Typography, Tag, Avatar, Tooltip } from "neetoui/v2";
 
-import { NoteContext } from "components/Dashboard/Notes/List/Note";
+import { NoteContext } from "components/Dashboard/Notes/List/Card";
 
 const NoteFooter = () => {
   const { note } = useContext(NoteContext);

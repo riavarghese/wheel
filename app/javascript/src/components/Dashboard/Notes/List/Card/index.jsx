@@ -7,7 +7,7 @@ import NoteHeader from "./Header";
 /* eslint-disable import/exports-last */
 export const NoteContext = React.createContext();
 
-const Note = ({ note, index }) => {
+const Card = ({ note, index }) => {
   return (
     <NoteContext.Provider value={{ note, index }}>
       <div className="border border-gray-300 p-4 shadow-sm mb-4 rounded-sm">
@@ -21,4 +21,4 @@ const Note = ({ note, index }) => {
   );
 };
 
-export default Note;
+export default Card;

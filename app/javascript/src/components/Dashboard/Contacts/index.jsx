@@ -1,30 +1,30 @@
 import React, { useState, useContext } from "react";
 
-import DeleteModal from "components/Common/DeleteModal";
-import EmptyState from "components/Common/EmptyState";
-import AppHeader from "components/Common/Header";
-import Menubar from "components/Common/Menubar";
+import DeleteContact from "Common/Delete";
+import EmptyState from "Common/EmptyState";
+import AppHeader from "Common/Header";
+import Menubar from "Common/Menubar";
 import { DashboardContext } from "contexts/dashboard";
 
 import { CONTACTS } from "./constants";
-import NewContactPane from "./Pane";
+import CreateContact from "./Create";
 import ContactsTable from "./Table";
 
 const Contacts = () => {
-  const [showMenu, setShowMenu] = useState(false);
+  const [isMenuBarOpen, setIsMenuBarOpen] = useState(false);
   const isContactsNotEmpty = !!CONTACTS.length;
-  const { showDeleteModal, setShowNewContactPane } =
+  const { isDeleteModalOpen, setIsNewContactPaneOpen } =
     useContext(DashboardContext);
 
   return (
     <div className="w-full flex">
-      <Menubar showMenu={showMenu} isContactsPage />
+      <Menubar isMenuBarOpen={isMenuBarOpen} isContactsPage />
       <div className="w-full overflow-y-auto px-8">
         <AppHeader
           isContactsPage
-          showMenu={showMenu}
-          setShowMenu={setShowMenu}
-          buttonAction={() => setShowNewContactPane(true)}
+          isMenuBarOpen={isMenuBarOpen}
+          setIsMenuBarOpen={setIsMenuBarOpen}
+          buttonAction={() => setIsNewContactPaneOpen(true)}
         />
         {isContactsNotEmpty ? (
           <ContactsTable />
@@ -35,8 +35,8 @@ const Contacts = () => {
             primaryActionLabel="Add Contacts"
           />
         )}
-        <NewContactPane />
-        {showDeleteModal && <DeleteModal isContactsPage />}
+        <CreateContact />
+        {isDeleteModalOpen && <DeleteContact isContactsPage />}
       </div>
     </div>
   );

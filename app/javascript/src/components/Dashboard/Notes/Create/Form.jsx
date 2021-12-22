@@ -15,7 +15,7 @@ import { DashboardContext } from "contexts/dashboard";
 
 const NoteForm = ({ note }) => {
   const [submitted, setSubmitted] = useState(false);
-  const { setShowNewNotePane } = useContext(DashboardContext);
+  const { setIsNewNotePaneOpen } = useContext(DashboardContext);
 
   const handleSubmit = values => {
     const day = new Date().toLocaleString("en-US", {
@@ -38,7 +38,7 @@ const NoteForm = ({ note }) => {
       imageUrl: "https://randomuser.me/api/portraits/women/90.jpg",
     });
 
-    setShowNewNotePane(false);
+    setIsNewNotePaneOpen(false);
     Toastr.success("Note created successfully.");
   };
 
@@ -101,7 +101,7 @@ const NoteForm = ({ note }) => {
               }}
             />
             <Button
-              onClick={() => setShowNewNotePane(false)}
+              onClick={() => setIsNewNotePaneOpen(false)}
               label="Cancel"
               size="large"
               style="text"

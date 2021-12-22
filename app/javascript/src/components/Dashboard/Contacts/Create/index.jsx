@@ -5,23 +5,25 @@ import { Pane, Typography } from "neetoui/v2";
 import formInitialValues from "constants/formInitialValues";
 import { DashboardContext } from "contexts/dashboard";
 
-import ContactForm from "./Form";
+import Form from "./Form";
 
-export default function NewContactPane() {
-  const { showNewContactPane, setShowNewContactPane } =
+const Create = () => {
+  const { isNewContactPaneOpen, setIsNewContactPaneOpen } =
     useContext(DashboardContext);
 
   return (
     <Pane
-      isOpen={showNewContactPane}
-      onClose={() => setShowNewContactPane(false)}
+      isOpen={isNewContactPaneOpen}
+      onClose={() => setIsNewContactPaneOpen(false)}
     >
       <Pane.Header>
         <Typography style="h2" weight="semibold">
           Add New Contact
         </Typography>
       </Pane.Header>
-      <ContactForm contact={formInitialValues.contactsForm} />
+      <Form contact={formInitialValues.contactsForm} />
     </Pane>
   );
-}
+};
+
+export default Create;

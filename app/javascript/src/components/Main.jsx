@@ -8,10 +8,10 @@ import { ToastContainer } from "react-toastify";
 
 import { setAuthHeaders, registerIntercepts } from "apis/axios";
 import { initializeLogger } from "common/logger";
+import PrivateRoute from "Common/PrivateRoute";
 import Login from "components/Authentication/Login";
 import PasswordReset from "components/Authentication/ResetPassword";
 import Signup from "components/Authentication/Signup";
-import PrivateRoute from "components/Common/PrivateRoute";
 import Dashboard from "components/Dashboard";
 import Hero from "components/Home/Hero";
 import { useAuthState, useAuthDispatch } from "contexts/auth";

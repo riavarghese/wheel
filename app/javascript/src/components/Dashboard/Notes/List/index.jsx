@@ -1,9 +1,9 @@
 import React from "react";
 
-import EmptyState from "components/Common/EmptyState";
+import EmptyState from "Common/EmptyState";
 import { SAMPLE_NOTES } from "components/Dashboard/Notes/constants";
 
-import Note from "./Note";
+import Card from "./Card";
 
 const NoteList = () => {
   const isNotesNotEmpty = !!SAMPLE_NOTES.length;
@@ -12,7 +12,7 @@ const NoteList = () => {
     <div className="w-full notes-table-height">
       {isNotesNotEmpty ? (
         SAMPLE_NOTES.map((note, index) => (
-          <Note key={index} note={note} index={index} />
+          <Card key={index} note={note} index={index} />
         ))
       ) : (
         <EmptyState
