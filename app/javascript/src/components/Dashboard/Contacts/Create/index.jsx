@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 
 import { Pane, Typography } from "neetoui/v2";
 
-import formInitialValues from "constants/formInitialValues";
 import { DashboardContext } from "contexts/dashboard";
 
 import Form from "./Form";
@@ -21,7 +20,7 @@ const Create = () => {
           Add New Contact
         </Typography>
       </Pane.Header>
-      <Form contact={formInitialValues.contactsForm} />
+      <Form />
     </Pane>
   );
 };

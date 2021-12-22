@@ -5,15 +5,16 @@ import { Toastr, Button, Pane } from "neetoui/v2";
 import { Input, Select } from "neetoui/v2/formik";
 
 import {
+  CONTACT_INITIAL_VALUES,
+  CONTACT_VALIDATION_SCHEMA,
   MONTHS,
   CONTACTS,
   FORM_ROLE_DROPDOWN,
 } from "components/Dashboard/Contacts/constants";
 import { formatNameAndRole } from "components/Dashboard/Contacts/utils";
-import formValidationSchemas from "constants/formValidationSchemas";
 import { DashboardContext } from "contexts/dashboard";
 
-const ContactForm = ({ contact }) => {
+const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const { setIsNewContactPaneOpen } = useContext(DashboardContext);
 
@@ -40,45 +41,41 @@ const ContactForm = ({ contact }) => {
 
   return (
     <Formik
-      initialValues={contact}
+      initialValues={CONTACT_INITIAL_VALUES}
       onSubmit={handleSubmit}
       validateOnBlur={submitted}
       validateOnChange={submitted}
-      validationSchema={formValidationSchemas.contactsForm}
+      validationSchema={CONTACT_VALIDATION_SCHEMA}
     >
       {({ isSubmitting, handleSubmit }) => (
         <Form className="w-full">
           <Pane.Body className="space-y-6">
             <div className="flex w-full gap-x-4">
               <Input
-                label="First Name"
+                label="First Name*"
                 name="firstName"
                 className="flex-grow-0 w-full"
                 placeholder="Enter first name"
-                required
               />
               <Input
-                label="Last Name"
+                label="Last Name*"
                 name="lastName"
                 className="flex-grow-0 w-full"
                 placeholder="Enter last name"
-                required
               />
             </div>
             <Input
-              label="Email address"
+              label="Email address*"
               name="email"
               className="flex-grow-0 w-full"
               placeholder="Enter your email address"
-              required
             />
             <Select
-              label="Role"
+              label="Role*"
               name="role"
               className="flex-grow-0 w-full"
               options={FORM_ROLE_DROPDOWN}
               placeholder="Select Role"
-              required
             />
           </Pane.Body>
           <Pane.Footer>

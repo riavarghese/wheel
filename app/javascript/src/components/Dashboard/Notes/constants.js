@@ -1,3 +1,5 @@
+import * as Yup from "yup";
+
 export const SAMPLE_NOTES = [
   {
     title: "How to claim warranty?",
@@ -78,3 +80,17 @@ export const FORM_TAGS_DROPDOWN = [
     value: "v2",
   },
 ];
+
+export const NOTE_INITIAL_VALUES = {
+  title: "",
+  description: "",
+  assignedContact: "",
+  tags: "",
+};
+
+export const NOTE_VALIDATION_SCHEMA = Yup.object().shape({
+  title: Yup.string().required("Title is required"),
+  description: Yup.string().required("Description is required"),
+  assignedContact: Yup.object().required("Assigned contact is required"),
+  tags: Yup.object().required("Tag is required"),
+});
